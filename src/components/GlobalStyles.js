@@ -32,10 +32,11 @@ h2{
   font-weight: lighter;
 }
 h3{
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   color: #333;
-  padding: 1.5rem 0rem;
+  padding: 2rem 0rem;
   gap: 2rem;
+  
   
   
 }
@@ -44,11 +45,14 @@ p{
     line-height: 200%;
     color: #696969;
   }
+
+ 
   a{
     text-decoration: none;
     color: #333;
-
   }
+
+  
 
 `;
 
