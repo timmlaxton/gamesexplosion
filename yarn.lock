@@ -3295,6 +3295,14 @@
   "resolved" "https://registry.npmjs.org/browser-process-hrtime/-/browser-process-hrtime-1.0.0.tgz"
   "version" "1.0.0"
 
+"browser-router@^0.2.0":
+  "integrity" "sha1-2ciyZdFN9IiHxLXAv5KUs1t5Fa8="
+  "resolved" "https://registry.npmjs.org/browser-router/-/browser-router-0.2.0.tgz"
+  "version" "0.2.0"
+  dependencies:
+    "query-string" "~0.1.1"
+    "underscore" "~1.5.2"
+
 "browserify-aes@^1.0.0", "browserify-aes@^1.0.4":
   "integrity" "sha512-+7CHXqGuspUn/Sl5aO7Ea0xWGAtETPXNSAjHo48JfLdPWcMng33Xe4znFvQweqc/uzk5zSOI3H52CYnjCfb5hA=="
   "resolved" "https://registry.npmjs.org/browserify-aes/-/browserify-aes-1.2.0.tgz"
@@ -7257,6 +7265,7 @@
     "jest-snapshot" "^26.6.2"
 
 "jest-resolve@*":
+  "integrity" "sha512-tRAz2bwraHufNp+CCmAD8ciyCpXCs1NQxB5EJAmtCFy6BN81loFEGWKzYu26Y62lAJJe4X4jg36Kf+NsQyiStQ=="
   "version" "26.6.0"
   dependencies:
     "@jest/types" "^26.6.0"
@@ -9972,6 +9981,11 @@
     "object-assign" "^4.1.0"
     "strict-uri-encode" "^1.0.0"
 
+"query-string@~0.1.1":
+  "integrity" "sha1-KbCyEtyN93ghQ0N+EfiGULB/jQc="
+  "resolved" "https://registry.npmjs.org/query-string/-/query-string-0.1.1.tgz"
+  "version" "0.1.1"
+
 "querystring-es3@^0.2.0":
   "integrity" "sha1-nsYfeQSYdXB9aUFFlv2Qek1xHnM="
   "resolved" "https://registry.npmjs.org/querystring-es3/-/querystring-es3-0.2.1.tgz"
@@ -10085,6 +10099,7 @@
     "text-table" "0.2.0"
 
 "react-dom@^17.0.2", "react-dom@>= 16.8.0", "react-dom@>=16.8 || ^17.0.0":
+  "integrity" "sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA=="
   "version" "17.0.2"
   dependencies:
     "loose-envify" "^1.1.0"
@@ -12045,6 +12060,11 @@
     "has-bigints" "^1.0.1"
     "has-symbols" "^1.0.2"
     "which-boxed-primitive" "^1.0.2"
+
+"underscore@~1.5.2":
+  "integrity" "sha1-EzXF5PXm0zu7SwBrqMhqAPVW3gg="
+  "resolved" "https://registry.npmjs.org/underscore/-/underscore-1.5.2.tgz"
+  "version" "1.5.2"
 
 "unicode-canonical-property-names-ecmascript@^1.0.4":
   "integrity" "sha512-jDrNnXWHd4oHiTZnx/ZG7gtUTVp+gCcTTKr8L0HjlwphROEW3+Him+IpvC+xcJEFegapiMZyZe02CyuOnRmbnQ=="

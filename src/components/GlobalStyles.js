@@ -14,11 +14,15 @@ html {
   &::webkit-scrollbar-thumbr{
     background-color: darkgray
   }
+  &::-webkit-scrollbar-track {
+    background: white;
+  }
  
 }
 body {
   font-family: 'Roboto', sans-serif;
   width: 100%;
+  
   
 }
 
@@ -30,7 +34,8 @@ h2{
 h3{
   font-size: 1.3rem;
   color: #333;
-  padding: 1.5rem;
+  padding: 1.5rem 0rem;
+  gap: 2rem;
   
   
 }
