@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-const GamesDetails = ({ pathId }) => {
+const Games = ({ pathId }) => {
   const history = useHistory();
 
   const exitDetailHandler = (e) => {
@@ -21,7 +21,7 @@ const GamesDetails = ({ pathId }) => {
     <>
       {!isLoading && (
         <CardShadow className="shadow" onClick={exitDetailHandler}>
-          <Detail layoutId={pathId}>
+          <Detail>
             <Stats>
               <div className="rating">
                 <h3>{game.name}</h3>
@@ -79,7 +79,6 @@ const CardShadow = styled(motion.div)`
 
 const Detail = styled(motion.div)`
   width: 80%;
-
   border-radius: 1rem;
   padding: 2rem 5rem;
   background: #fefefa;
@@ -130,4 +129,4 @@ const h3 = styled(motion.div)`
   min-width: 10vw;
 `;
 
-export default GamesDetails;
+export default Games;

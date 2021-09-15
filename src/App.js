@@ -1,5 +1,6 @@
 import React from "react";
 import Home from "./pages/Home";
+import Games from "./pages/Games";
 import Search from "./components/Search";
 import Nav from "./components/Nav";
 import GlobalStyle from "./components/GlobalStyles";
@@ -12,9 +13,12 @@ function App() {
     <div className="App">
       <GlobalStyle />
       <Nav />
-      <Search />
+      {/* <Search /> */}
       <Route path={["/game/:id", "/"]}>
         <Home />
+      </Route>
+      <Route path={["/game/:id", "/"]}>
+        <Games />
       </Route>
     </div>
   );

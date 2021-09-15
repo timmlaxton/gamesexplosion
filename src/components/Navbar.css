@@ -1,9 +1,11 @@
 .navbar {
-  background-color: #fff;
-  height: 80px;
   display: flex;
-  justify-content: start;
+  width: 90%;
+  margin: auto;
+  padding: 2rem;
+  min-height: 10vh;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .menu-bars {
@@ -56,6 +58,8 @@
 
 .nav-menu-items {
   width: 100%;
+  left: 0;
+  top: 0;
 }
 
 .navbar-toggle {
@@ -69,4 +73,33 @@
 
 span {
   margin-left: 16px;
+}
+
+.logo {
+  margin-left: 50px;
+}
+
+.searchbar {
+  padding: 3rem 8rem;
+  text-align: center;
+}
+
+input {
+  width: 80%;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  border: solid 3px #000;
+  margin-top: 1rem;
+  text-decoration: none;
+  color: #000;
+}
+
+.button {
+  font-size: 1.5rem;
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+  background: #e5e5e5;
+  color: #000;
+  border: none;
+  margin-top: 10px;
 }
