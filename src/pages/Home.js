@@ -35,6 +35,7 @@ const Home = () => {
                 id={game.id}
                 image={game.background_image}
                 key={game.id}
+                genres={game.genres}
               />
             ))}
           </Games>
@@ -50,9 +51,11 @@ const Home = () => {
             id={game.id}
             image={game.background_image}
             key={game.id}
+            genres={game.genres}
           />
         ))}
       </Games>
+
       <h2>Popular</h2>
       <Games>
         {popular.map((game) => (
@@ -61,6 +64,7 @@ const Home = () => {
             id={game.id}
             image={game.background_image}
             key={game.id}
+            genres={game.genres}
           />
         ))}
       </Games>
@@ -72,6 +76,7 @@ const Home = () => {
             id={game.id}
             image={game.background_image}
             key={game.id}
+            genres={game.genres}
           />
         ))}
       </Games>
