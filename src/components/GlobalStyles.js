@@ -28,7 +28,7 @@ body {
 
 h2{
   font-size: 3rem;
-  font-family: 'Lato', cursive ;
+  
   font-weight: lighter;
 }
 h3{
@@ -52,7 +52,9 @@ p{
     color: #333;
   }
 
-  
+  input{
+    font-family: 'Lato', cursive ;
+  }
 
 `;
 

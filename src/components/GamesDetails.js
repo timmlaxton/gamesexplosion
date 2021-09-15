@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-const GamesDetails = () => {
+const GamesDetails = ({ pathId }) => {
   const history = useHistory();
 
   const exitDetailHandler = (e) => {
