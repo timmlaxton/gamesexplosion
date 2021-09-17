@@ -1,25 +1,39 @@
 import React, { useEffect } from "react";
 import GamesDetails from "../components/GamesDetails";
 import { useDispatch, useSelector } from "react-redux";
-import { loadGames } from "../actions/gamesActions";
+import { loadGamesForGenre } from "../actions/gamesActions";
 import Game from "../components/Game";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
-const Home = () => {
+const TITLES_CONFIG = {
+  action: "Actions",
+  shooter: "Shooters",
+  puzzle: "Puzzles",
+  default: "Games",
+};
+
+const GameGenre = () => {
   const dispatch = useDispatch();
-
   const location = useLocation();
+  const { genre: genreType } = useParams();
+
   const pathId = location.pathname.split("/")[2];
 
   useEffect(() => {
-    dispatch(loadGames());
-  }, [dispatch]);
+    dispatch(loadGamesForGenre(genreType));
+  }, [dispatch, genreType]);
 
-  const { popular, newGames, upcoming, searched } = useSelector(
-    (state) => state.games
-  );
+  const gamesByGenre = useSelector((state) => {
+    const gamesIds = state.games.genres[genreType];
+    if (!Array.isArray(gamesIds)) return [];
+    return gamesIds.map((gameId) => {
+      return state.games.games[gameId];
+    });
+  });
+
+  const searched = useSelector((state) => state.games.searched);
 
   return (
     <GameList>
@@ -31,6 +45,7 @@ const Home = () => {
             {searched.map((game) => (
               <Game
                 name={game.name}
+                released={game.released}
                 id={game.id}
                 image={game.background_image}
                 key={game.id}
@@ -42,35 +57,10 @@ const Home = () => {
       ) : (
         ""
       )}
-      <h2>Upcoming Games</h2>
+      <h2>{TITLES_CONFIG[genreType] || TITLES_CONFIG.default}</h2>
       <Games>
-        {upcoming.map((game) => (
-          <Game
-            name={game.name}
-            id={game.id}
-            image={game.background_image}
-            key={game.id}
-            genres={game.genres}
-          />
-        ))}
-      </Games>
-
-      <h2>Popular</h2>
-      <Games>
-        {popular.map((game) => (
-          <Game
-            name={game.name}
-            id={game.id}
-            image={game.background_image}
-            key={game.id}
-            genre={game.genres}
-          />
-        ))}
-      </Games>
-      <h2>New Games</h2>
-      <Games>
-        {newGames &&
-          newGames.map((game) => (
+        {gamesByGenre &&
+          gamesByGenre.map((game) => (
             <Game
               name={game.name}
               id={game.id}
@@ -101,4 +91,4 @@ const Games = styled(motion.div)`
   grid-row-gap: 3rem;
 `;
 
-export default Home;
+export default GameGenre;

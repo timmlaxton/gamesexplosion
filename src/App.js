@@ -2,6 +2,7 @@ import React from "react";
 import Home from "./pages/Home";
 import Games from "./pages/Games";
 import Search from "./components/Search";
+import GameGenre from "./pages/GameGenre";
 import Nav from "./components/Nav";
 import GlobalStyle from "./components/GlobalStyles";
 import { Route } from "react-router-dom";
@@ -14,11 +15,14 @@ function App() {
       <GlobalStyle />
       <Nav />
       {/* <Search /> */}
-      <Route path={["/game/:id", "/"]}>
+      <Route exact path={["/game/:id", "/"]}>
         <Home />
       </Route>
-      <Route path={["/game/:id", "/"]}>
+      <Route path={["/game/:id", "/games"]}>
         <Games />
+      </Route>
+      <Route path={"/games/:genre"}>
+        <GameGenre />
       </Route>
     </div>
   );

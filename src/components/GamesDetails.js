@@ -84,7 +84,7 @@ const Detail = styled(motion.div)`
   padding: 2rem 5rem;
   background: #fefefa;
   position: absolute;
-  left: 10%;
+  left: 0%;
   color: black;
   z-index: 10;
   img {
@@ -118,7 +118,7 @@ const Platforms = styled(motion.div)`
 const Media = styled(motion.div)`
   margin-top: 5rem;
   img {
-    width: 100%;
+    width: 50%;
   }
 `;
 

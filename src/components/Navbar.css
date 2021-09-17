@@ -16,7 +16,7 @@
 
 .nav-menu {
   background-color: #060b26;
-  width: 150px;
+  width: 21s0px;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -92,14 +92,16 @@ input {
   margin-top: 1rem;
   text-decoration: none;
   color: #000;
+  border-radius: 4rem;
 }
 
 .button {
   font-size: 1.5rem;
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 4rem;
   cursor: pointer;
-  background: #e5e5e5;
+  background: #e6e3e3;
   color: #000;
   border: none;
   margin-top: 10px;
+  border-radius: 4rem;
 }

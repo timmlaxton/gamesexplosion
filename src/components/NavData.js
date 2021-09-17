@@ -17,4 +17,22 @@ export const NavData = [
     icon: <CgIcons.CgGames />,
     cName: "nav-text",
   },
+  {
+    title: "Action",
+    path: "/games/action",
+    icon: <CgIcons.CgGames />,
+    cName: "nav-text",
+  },
+  {
+    title: "Shooter",
+    path: "/games/shooter",
+    icon: <CgIcons.CgGames />,
+    cName: "nav-text",
+  },
+  {
+    title: "Puzzle",
+    path: "/games/puzzle",
+    icon: <CgIcons.CgGames />,
+    cName: "nav-text",
+  },
 ];

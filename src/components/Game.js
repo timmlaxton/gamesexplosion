@@ -16,8 +16,8 @@ const Game = ({ name, image, id }) => {
   return (
     <StyledGame onClick={loadDetailHandler}>
       <Link to={`/game/${id}`}>
-        <h3>{name}</h3>
         <img src={image} alt={name} />
+        <h3>{name}</h3>
       </Link>
     </StyledGame>
   );
@@ -25,8 +25,10 @@ const Game = ({ name, image, id }) => {
 
 const StyledGame = styled(motion.div)`
   background-color: #fefefa;
-  min-height: 10%;
-  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.4);
+  min-height: 5%;
+  width: 90%;
+  margin-left: 110px;
+  /* box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.4); */
   text-align: center;
   border-radius: 1rem;
   cursor: pointer;
