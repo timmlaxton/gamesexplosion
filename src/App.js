@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Games from "./pages/Games";
 import Search from "./components/Search";
 import GameGenre from "./pages/GameGenre";
+import Landing from "./pages/Landing";
 import Nav from "./components/Nav";
 import GlobalStyle from "./components/GlobalStyles";
 import { Route } from "react-router-dom";
@@ -23,6 +24,9 @@ function App() {
       </Route>
       <Route path={"/games/:genre"}>
         <GameGenre />
+      </Route>
+      <Route path={"/landing"}>
+        <Landing />
       </Route>
     </div>
   );
