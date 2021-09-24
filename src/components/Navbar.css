@@ -1,11 +1,11 @@
 .navbar {
   display: flex;
-  width: 90%;
-  margin: auto;
+  width: 20%;
   padding: 2rem;
   min-height: 10vh;
   align-items: center;
-  flex-wrap: wrap;
+
+  background-color: red;
 }
 
 .menu-bars {
@@ -16,7 +16,7 @@
 
 .nav-menu {
   background-color: #060b26;
-  width: 21s0px;
+  width: 210px;
   height: 100vh;
   display: flex;
   justify-content: center;

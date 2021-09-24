@@ -24,7 +24,7 @@ const Game = ({ name, image, id }) => {
 };
 
 const StyledGame = styled(motion.div)`
-  background-color: #fefefa;
+  background-color: #000;
   min-height: 5%;
   width: 90%;
   margin-left: 110px;
@@ -34,6 +34,8 @@ const StyledGame = styled(motion.div)`
   cursor: pointer;
   padding: 1rem 1rem;
   overflow: hidden;
+  color: #fff;
+  text-decoration: none;
 
   img {
     width: 90%;

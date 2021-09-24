@@ -2,6 +2,8 @@ const initialState = {
   popular: [],
   newGames: [],
   upcoming: [],
+  homeNewGames: [],
+  homeUpcomingGames: [],
   gamesGenre: [],
   searched: [],
   games: {},
@@ -49,6 +51,8 @@ const gamesReducer = (state = initialState, action) => {
         popular: action.payload.popular,
         upcoming: action.payload.upcoming,
         newGames: action.payload.newGames,
+        homeUpcomingGames: action.payload.homeUpcomingGames,
+        homeNewGames: action.payload.homeNewGames,
         gameGenre: action.payload.gameGenre,
       };
 

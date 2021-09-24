@@ -82,7 +82,7 @@ const Detail = styled(motion.div)`
 
   border-radius: 1rem;
   padding: 2rem 5rem;
-  background: #fefefa;
+  background: #000;
   position: absolute;
   left: 0%;
   color: black;

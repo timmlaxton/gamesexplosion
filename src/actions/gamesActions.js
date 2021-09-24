@@ -5,6 +5,8 @@ import {
   newGamesURL,
   searchGameURL,
   gameGenreURL,
+  homeUpcomingGamesURL,
+  homeNewGamesURL,
 } from "../api";
 
 export const loadGamesForGenre =
@@ -24,21 +26,24 @@ export const loadGames = () => async (dispatch) => {
   const newGamesDataPromise = axios.get(newGamesURL());
   const upcomingDataPromise = axios.get(upcomingGamesURL());
   const gameGenreDataPromise = axios.get(gameGenreURL());
+  const homeNewGamesDataPromise = axios.get(homeNewGamesURL());
+  const homeUpcomingGamesDataPromise = axios.get(homeUpcomingGamesURL());
 
-  const [popularData, newGamesData, upcomingData, gameGenreData] =
-    await Promise.all([
-      popularDataPromise,
-      newGamesDataPromise,
-      upcomingDataPromise,
-      gameGenreDataPromise,
-    ]);
-
-  console.log("games", {
+  const [
     popularData,
     newGamesData,
     upcomingData,
     gameGenreData,
-  });
+    homeNewGamesData,
+    homeUpcomingGamesData,
+  ] = await Promise.all([
+    popularDataPromise,
+    newGamesDataPromise,
+    upcomingDataPromise,
+    gameGenreDataPromise,
+    homeNewGamesDataPromise,
+    homeUpcomingGamesDataPromise,
+  ]);
 
   dispatch({
     type: "FETCH_GAMES",
@@ -47,6 +52,8 @@ export const loadGames = () => async (dispatch) => {
       newGames: newGamesData.data.results,
       upcoming: upcomingData.data.results,
       gameGenre: gameGenreData.data.results,
+      homeNewGames: homeNewGamesData.data.results,
+      homeUpcomingGames: homeUpcomingGamesData.data.results,
     },
   });
 };

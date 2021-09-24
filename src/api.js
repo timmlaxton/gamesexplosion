@@ -31,10 +31,14 @@ const popular_games = `games?key=${api_key}&dates=${lastYear},${currentDate}&ord
 const upcoming_games = `games?key=${api_key}&dates=${currentDate},${nextYear}&ordering=-added&page_size=20`;
 const newGames = `games?key=${api_key}&dates=${lastYear},${currentDate}&ordering=-released&page_size=20`;
 const gameGenre = `games?key=${api_key}&genres=`;
+const home_upcoming_games = `games?key=${api_key}&dates=${currentDate},${nextYear}&ordering=-added&page_size=3`;
+const home_new_games = `games?key=${api_key}&dates=${lastYear},${currentDate}&ordering=-released&page_size=3`;
 
 export const popularGamesURL = () => `${base_url}${popular_games}`;
 export const upcomingGamesURL = () => `${base_url}${upcoming_games}`;
 export const newGamesURL = () => `${base_url}${newGames}`;
+export const homeUpcomingGamesURL = () => `${base_url}${home_upcoming_games}`;
+export const homeNewGamesURL = () => `${base_url}${home_new_games}`;
 export const gameGenreURL = (genres) => {
   let genresParam = genres;
 

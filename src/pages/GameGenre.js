@@ -48,7 +48,7 @@ const GameGenre = () => {
                 released={game.released}
                 id={game.id}
                 image={game.background_image}
-                key={game.id}
+                key={game.ids}
                 genres={game.genres}
               />
             ))}
@@ -65,7 +65,7 @@ const GameGenre = () => {
               name={game.name}
               id={game.id}
               image={game.background_image}
-              key={game.id}
+              key={game.ids}
               genres={game.genres}
             />
           ))}

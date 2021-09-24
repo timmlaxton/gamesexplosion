@@ -1,77 +1,140 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import * as FaIcons from "react-icons/fa";
-import * as AiIcons from "react-icons/ai";
-import { NavData } from "./NavData";
+import React from "react";
 import styled from "styled-components";
-import explosion from "../img/explosion.png";
-import { fetchSearch } from "../actions/gamesActions";
-import { useDispatch } from "react-redux";
+import logo from "../img/explosion.png";
 import { motion } from "framer-motion";
-import "./Navbar.css";
 
 const Nav = () => {
-  const dispatch = useDispatch();
-
-  const [sidebar, setSidebar] = useState(false);
-  const [textInput, setTextInput] = useState("");
-
-  const inputHandler = (e) => {
-    setTextInput(e.target.value);
-  };
-
-  const submitSearch = (e) => {
-    e.preventDefault();
-    dispatch(fetchSearch(textInput));
-    setTextInput("");
-  };
-
-  const clearSearch = () => {
-    dispatch({ type: "CLEAR_SEARCHED" });
-  };
-
-  const showSidebar = () => setSidebar(!sidebar);
-
   return (
-    <>
-      <div className="navbar">
-        <Link to="#" className="menu-bars">
-          <FaIcons.FaBars onClick={showSidebar} />
-        </Link>
-        <div onClick={clearSearch} className="logo">
-          <img src={explosion} alt="logo" />
-        </div>
-        <form className="searchbar">
-          <input value={textInput} onChange={inputHandler} type="text" />
-          <button className="button" onClick={submitSearch} type="submit">
-            Search
-          </button>
-        </form>
-      </div>
-      <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
-        <ul className="nav-menu-items" onClick={showSidebar}>
-          <li className="navbar-toggle">
-            <Link to="#" className="menu-bars">
-              <AiIcons.AiOutlineClose />
-            </Link>
-          </li>
-          {NavData.map((item, index) => {
-            return (
-              <li key={index} className={item.cName}>
-                <Link to={item.path}>
-                  {item.icon}
+    <StyledNav>
+      <img src={logo} alt="explosion" />
 
-                  <span>{item.title}</span>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
-    </>
+      <h1>
+        <a href="/">Games Explosion</a>
+      </h1>
+      <div className="search">
+        <input type="text" />
+        <button>Search</button>
+      </div>
+      <ul>
+        <li>
+          <a href="/games/:id">Games</a>
+        </li>
+        <li>
+          <a href="/games/action">Action</a>
+        </li>
+        <li>
+          <a href="/games/puzzle">Puzzle</a>
+        </li>
+        <li>
+          <a href="/games/shooter">Shooter</a>
+        </li>
+      </ul>
+    </StyledNav>
+
+    // <StyledNav>
+
+    //   <div className="search">
+    //     <input type="text" />
+    //     <button>Search</button>
+    //   </div>
+    // </StyledNav>
   );
 };
 
-const NavBar = styled(motion.div)``;
+// const StyledNav = styled(motion.div)`
+//   padding: 3rem 5rem;
+//   text-align: center;
+
+//   h1 {
+//     font-family: "Rubik", sans-serif;
+//     margin-top: 15px;
+//     font-size: 40px;
+//   }
+// `;
+
+//   img {
+//     width: 5rem;
+//     height: 5rem;
+//     margin-right: 15px;
+//     margin-top: 10px;
+//   }
+// `;
+
+const StyledNav = styled.nav`
+  min-height: 20vh;
+  min-width: 100%;
+  display: flex;
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 10rem;
+  background: #282828;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  img {
+    width: 5%;
+    margin-left: 1%;
+    left: 0;
+    top: 0;
+  }
+
+  input {
+    font-size: 1.5rem;
+    padding: 0.4rem;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    font-family: "Rubik", sans-serif;
+    border-radius: 10px;
+  }
+  button {
+    font-size: 1.1rem;
+    border: none;
+    padding: 0.71rem 1.6rem;
+    cursor: pointer;
+    background: #ff0099;
+    color: #fff;
+    position: relative;
+    bottom: 1px;
+    border-radius: 10px;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  ul {
+    display: flex;
+    list-style: none;
+  }
+  #logo {
+    font-size: 1.5rem;
+    font-family: "Rubik", cursive;
+    font-weight: lighter;
+  }
+  li {
+    padding-left: 10rem;
+    position: relative;
+  }
+  @media (max-width: 1300px) {
+    flex-direction: column;
+    padding: 2rem 1rem;
+    h1 {
+      display: inline-block;
+      margin: 1rem;
+      padding: 1rem 0;
+    }
+    ul {
+      padding: 2rem;
+      justify-content: space-around;
+      width: 100%;
+      li {
+        padding: 0;
+      }
+    }
+  }
+`;
 
 export default Nav;

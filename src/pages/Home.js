@@ -33,7 +33,7 @@ const Home = () => {
                 name={game.name}
                 id={game.id}
                 image={game.background_image}
-                key={game.id}
+                key={game.ide}
                 genres={game.genres}
               />
             ))}
@@ -49,7 +49,7 @@ const Home = () => {
             name={game.name}
             id={game.id}
             image={game.background_image}
-            key={game.id}
+            key={game.ide}
             genres={game.genres}
           />
         ))}

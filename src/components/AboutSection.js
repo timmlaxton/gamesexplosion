@@ -1,32 +1,32 @@
 import React from "react";
-import island from "../img/island.jpg";
+import home from "../img/island1.jpg";
+import { About, Description, Image, Hide } from "../styles";
+import { motion } from "framer-motion";
+
 const AboutSection = () => {
   return (
-    <div>
-      <div className="description">
-        <div className="title">
-          <div className="hide">
-            <h2>
+    <About>
+      <Description>
+        <motion.div>
+          <Hide>
+            <motion.h2>
               Everything was <span>beautiful</span>
-            </h2>
-          </div>
-          <div className="hide">
-            <h2>
-              and nothing <span>hurt</span>
-            </h2>
-          </div>
-          <div className="hide">
-            <h4>Kurt Vonnegut</h4>
-          </div>
-          <div className="hide">
-            <h2>true.</h2>
-          </div>
-        </div>
-        <div className="image">
-          <img src={island} alt="island" />
-        </div>
-      </div>
-    </div>
+            </motion.h2>
+          </Hide>
+          <Hide>
+            <motion.h2>
+              nothing <span>hurt</span>{" "}
+            </motion.h2>
+          </Hide>
+
+          <br />
+          <motion.h1>A site about games</motion.h1>
+        </motion.div>
+      </Description>
+      <Image>
+        <img src={home} alt="camera" />
+      </Image>
+    </About>
   );
 };
 

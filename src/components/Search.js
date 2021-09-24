@@ -44,7 +44,6 @@ const SearchBar = styled(motion.nav)`
 
   input {
     height: 10%;
-
     width: 50%;
     font-size: 1.5rem;
     padding: 0.5rem;
