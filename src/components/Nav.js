@@ -17,7 +17,7 @@ const Nav = () => {
       </div>
       <ul>
         <li>
-          <a href="/games/:id">Games</a>
+          <a href="/game">Games</a>
         </li>
         <li>
           <a href="/games/action">Action</a>

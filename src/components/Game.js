@@ -27,7 +27,7 @@ const StyledGame = styled(motion.div)`
   background-color: #000;
   min-height: 5%;
   width: 90%;
-  margin-left: 110px;
+  margin-left: 1px;
   /* box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.4); */
   text-align: center;
   border-radius: 1rem;
