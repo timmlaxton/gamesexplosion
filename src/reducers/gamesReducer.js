@@ -56,7 +56,6 @@ const gamesReducer = (state = initialState, action) => {
         gameGenre: action.payload.gameGenre,
       };
 
-      console.log("fetched games", fetchedGames);
       return fetchedGames;
     case "FETCH_SEARCHED":
       return {

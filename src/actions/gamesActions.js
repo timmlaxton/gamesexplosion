@@ -58,17 +58,6 @@ export const loadGames = () => async (dispatch) => {
   });
 };
 
-// export const loadGenre = () => async (dispatch) => {
-//   const gameGenreData = await axios.get(gameGenreURL());
-
-//   dispatch({
-//     type: "FETCH_GAMES_GENRE",
-//     payload: {
-//       gameGenre: gameGenreData.data.results,
-//     },
-//   });
-// };
-
 export const fetchSearch = (game_name) => async (dispatch) => {
   const searchGames = await axios.get(searchGameURL(game_name));
 

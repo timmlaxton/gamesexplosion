@@ -1,15 +1,23 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../img/explosion.png";
 import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
 const Nav = () => {
+  const { pathname } = useLocation();
+
   return (
     <StyledNav>
       <img src={logo} alt="explosion" />
-
       <h1>
-        <a href="/">Games Explosion</a>
+        <Link to="/">Games Explosion</Link>
+        <Line
+        // transition={{ duration: 0.75 }}
+        // initial={{ width: "0%" }}
+        // animate={{ width: pathname === "/" ? "40%" : "0%" }}
+        />
       </h1>
       <div className="search">
         <input type="text" />
@@ -17,67 +25,57 @@ const Nav = () => {
       </div>
       <ul>
         <li>
-          <a href="/game">Games</a>
+          <Link to="/game">Games</Link>
+          <Line
+          // transition={{ duration: 0.75 }}
+          // initial={{ width: "0%" }}
+          // animate={{ width: pathname === "/game" ? "40%" : "0%" }}
+          />
         </li>
         <li>
-          <a href="/games/action">Action</a>
+          <Link to="/games/action">Action</Link>
+          <Line
+          // transition={{ duration: 0.75 }}
+          // initial={{ width: "0%" }}
+          // animate={{ width: pathname === "/games/:action" ? "40%" : "0%" }}
+          />
         </li>
         <li>
-          <a href="/games/puzzle">Puzzle</a>
+          <Link to="/games/puzzle">Puzzle</Link>
+          <Line
+          // transition={{ duration: 0.75 }}
+          // initial={{ width: "0%" }}
+          // animate={{ width: pathname === "/games/:puzzle" ? "40%" : "0%" }}
+          />
         </li>
         <li>
-          <a href="/games/shooter">Shooter</a>
+          <Link to="/games/shooter">Shooter</Link>
+          <Line
+          // transition={{ duration: 0.75 }}
+          // initial={{ width: "0%" }}
+          // animate={{ width: pathname === "//games/:shooter" ? "40%" : "0%" }}
+          />
         </li>
       </ul>
     </StyledNav>
-
-    // <StyledNav>
-
-    //   <div className="search">
-    //     <input type="text" />
-    //     <button>Search</button>
-    //   </div>
-    // </StyledNav>
   );
 };
 
-// const StyledNav = styled(motion.div)`
-//   padding: 3rem 5rem;
-//   text-align: center;
-
-//   h1 {
-//     font-family: "Rubik", sans-serif;
-//     margin-top: 15px;
-//     font-size: 40px;
-//   }
-// `;
-
-//   img {
-//     width: 5rem;
-//     height: 5rem;
-//     margin-right: 15px;
-//     margin-top: 10px;
-//   }
-// `;
-
 const StyledNav = styled.nav`
   min-height: 20vh;
-  min-width: 100%;
   display: flex;
   margin: auto;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 10rem;
   background: #282828;
+
   position: sticky;
   top: 0;
   z-index: 10;
 
   img {
     width: 5%;
-    margin-left: 1%;
-    left: 0;
-    top: 0;
   }
 
   input {
@@ -88,7 +86,9 @@ const StyledNav = styled.nav`
     font-weight: bold;
     font-family: "Rubik", sans-serif;
     border-radius: 10px;
+    margin-left: 11px;
   }
+
   button {
     font-size: 1.1rem;
     border: none;
@@ -99,6 +99,7 @@ const StyledNav = styled.nav`
     position: relative;
     bottom: 1px;
     border-radius: 10px;
+    margin-left: 4px;
   }
 
   a {
@@ -115,7 +116,7 @@ const StyledNav = styled.nav`
     font-weight: lighter;
   }
   li {
-    padding-left: 10rem;
+    padding-left: 5rem;
     position: relative;
   }
   @media (max-width: 1300px) {
@@ -134,6 +135,18 @@ const StyledNav = styled.nav`
         padding: 0;
       }
     }
+  }
+`;
+
+const Line = styled(motion.div)`
+  height: 0.3rem;
+  background: #ff0099;
+  width: 0%;
+  position: absolute;
+  bottom: -80%;
+  left: 60%;
+  @media (max-width: 1300px) {
+    left: 0%;
   }
 `;
 

@@ -1,5 +1,5 @@
 import React from "react";
-import Games from "./pages/Games";
+import Home from "./pages/Home";
 import GameGenre from "./pages/GameGenre";
 import Landing from "./pages/Landing";
 import Nav from "./components/Nav";
@@ -7,23 +7,23 @@ import GlobalStyle from "./components/GlobalStyle";
 import { Switch, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
-import "./App.css";
-
 function App() {
   return (
     <div className="App">
       <GlobalStyle />
       <Nav />
       <AnimatePresence exitBeforeEnter>
-        <Route path="/games/:id">
-          <Games />
-        </Route>
-        <Route path="/games/:genre">
-          <GameGenre />
-        </Route>
-        <Route exact path="/">
-          <Landing />
-        </Route>
+        <Switch>
+          <Route exact path="/game">
+            <Home />
+          </Route>
+          <Route exact path="/games/:genre">
+            <GameGenre />
+          </Route>
+          <Route exact path="/">
+            <Landing />
+          </Route>
+        </Switch>
       </AnimatePresence>
     </div>
   );

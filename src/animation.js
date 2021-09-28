@@ -9,7 +9,7 @@ export const pageAnimation = {
     transition: {
       duration: 1,
       when: "beforeChildren",
-      staggerChildren: 0.5,
+      staggerChildren: 3,
     },
   },
   exit: {
@@ -22,14 +22,14 @@ export const pageAnimation = {
 
 export const titleAnim = {
   hidden: { y: 200 },
-  show: { y: 0, transition: { duration: 0.75, ease: "easeOut" } },
+  show: { y: 0, transition: { duration: 3.2, ease: "easeOut" } },
 };
 
 export const fade = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { ease: "easeOut", duration: 1 },
+    transition: { ease: "easeIn", duration: 1 },
   },
 };
 

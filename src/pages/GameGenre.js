@@ -8,9 +8,9 @@ import { motion } from "framer-motion";
 import { useLocation, useParams } from "react-router-dom";
 
 const TITLES_CONFIG = {
-  action: "Actions",
-  shooter: "Shooters",
-  puzzle: "Puzzles",
+  action: "Action",
+  shooter: "Shooter",
+  puzzle: "Puzzle",
   default: "Games",
 };
 
