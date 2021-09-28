@@ -6,8 +6,9 @@ import Game from "../components/Game";
 import Nav from "../components/Nav";
 import { motion } from "framer-motion";
 import styled from "styled-components";
-import { fade } from "../animation";
+
 import { useScroll } from "../components/useScroll";
+import { scrollReveal } from "../animation";
 import ScrollTop from "../components/ScrollTop";
 import { pageAnimation } from "../animation";
 
@@ -33,7 +34,12 @@ const Landing = () => {
         animate="show"
       >
         <AboutSection />
-        <GameList>
+        <GameList
+          variants={scrollReveal}
+          animate={controls}
+          initial="hidden"
+          ref={element}
+        >
           {searched.length ? (
             <div className="searched">
               <h2>Searched Games</h2>

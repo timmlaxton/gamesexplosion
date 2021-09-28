@@ -3,7 +3,6 @@ import GameDetails from "./components/GamesDetails";
 import GameGenre from "./pages/GameGenre";
 import Home from "./pages/Home";
 import Landing from "./pages/Landing";
-import Nav from "./components/Nav";
 import GlobalStyle from "./components/GlobalStyle";
 import { Switch, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
