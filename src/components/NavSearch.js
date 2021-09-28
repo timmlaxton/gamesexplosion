@@ -1,20 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../img/explosion.png";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
+import { fetchSearch } from "../actions/gamesActions";
+import { useDispatch } from "react-redux";
 
-const Nav = () => {
+const NavSearch = () => {
+  const dispatch = useDispatch();
+  const [textInput, setTextInput] = useState("");
+
   const { pathname } = useLocation();
 
+  const inputHandler = (e) => {
+    setTextInput(e.target.value);
+  };
+
+  const submitSearch = (e) => {
+    e.preventDefault();
+    dispatch(fetchSearch(textInput));
+    setTextInput("");
+  };
   return (
     <StyledNav>
       <img src={logo} alt="explosion" />
-      <Title>
+      <h1>
         <Link to="/">Games Explosion</Link>
-      </Title>
-
+      </h1>
+      <form className="search">
+        <input value={textInput} onChange={inputHandler} type="text" />
+        <button onClick={submitSearch} type="submit">
+          Search
+        </button>
+      </form>
       <ul>
         <li>
           <Link to="/game">Games</Link>
@@ -141,10 +160,4 @@ const Line = styled(motion.div)`
   }
 `;
 
-const Title = styled(motion.div)`
-  color: #fff;
-  font-size: 6rem;
-  font-family: "Permanent Marker";
-`;
-
-export default Nav;
+export default NavSearch;

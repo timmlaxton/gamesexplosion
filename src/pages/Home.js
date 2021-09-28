@@ -1,17 +1,17 @@
 import React, { useEffect } from "react";
-import GamesDetails from "../components/GamesDetails";
 import { useDispatch, useSelector } from "react-redux";
 import { loadGames } from "../actions/gamesActions";
 import Game from "../components/Game";
+import NavSearch from "../components/NavSearch";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { useLocation } from "react-router-dom";
+import { fade } from "../animation";
+import { useScroll } from "../components/useScroll";
+import ScrollTop from "../components/ScrollTop";
 
 const Home = () => {
+  const [element, controls] = useScroll();
   const dispatch = useDispatch();
-
-  const location = useLocation();
-  const pathId = location.pathname.split("/")[2];
 
   useEffect(() => {
     dispatch(loadGames());
@@ -22,56 +22,35 @@ const Home = () => {
   );
 
   return (
-    <GameList>
-      {pathId && <GamesDetails pathId={pathId} />}
-      {searched.length ? (
-        <div className="searched">
-          <h2>Searched Games</h2>
-          <Games>
-            {searched.map((game) => (
-              <Game
-                name={game.name}
-                id={game.id}
-                image={game.background_image}
-                key={game.ide}
-                genres={game.genres}
-              />
-            ))}
-          </Games>
-        </div>
-      ) : (
-        ""
-      )}
-      <h2>Upcoming Games</h2>
-      <Games>
-        {upcoming.map((game) => (
-          <Game
-            name={game.name}
-            id={game.id}
-            image={game.background_image}
-            key={game.ide}
-            genres={game.genres}
-          />
-        ))}
-      </Games>
-
-      <h2>Popular</h2>
-      <Games>
-        {popular.map((game) => (
-          <Game
-            name={game.name}
-            id={game.id}
-            image={game.background_image}
-            key={game.id}
-            genre={game.genres}
-          />
-        ))}
-      </Games>
-      <h2>New Games</h2>
-      <Games>
-        {newGames &&
-          newGames.map((game) => (
+    <>
+      <NavSearch />
+      <GameList>
+        {searched.length ? (
+          <div className="searched">
+            <h2>Searched Games</h2>
+            <Games>
+              {searched.map((game) => (
+                <Game
+                  name={game.name}
+                  id={game.id}
+                  image={game.background_image}
+                  key={game.id}
+                  genres={game.genres}
+                />
+              ))}
+            </Games>
+          </div>
+        ) : (
+          ""
+        )}
+        <h2>Upcoming Games</h2>
+        <Games>
+          {upcoming.map((game) => (
             <Game
+              variants={fade}
+              animate={controls}
+              initial="hidden"
+              ref={element}
               name={game.name}
               id={game.id}
               image={game.background_image}
@@ -79,8 +58,36 @@ const Home = () => {
               genres={game.genres}
             />
           ))}
-      </Games>
-    </GameList>
+        </Games>
+
+        <h2>Popular</h2>
+        <Games>
+          {popular.map((game) => (
+            <Game
+              name={game.name}
+              id={game.id}
+              image={game.background_image}
+              key={game.id}
+              genre={game.genres}
+            />
+          ))}
+        </Games>
+        <h2>New Games</h2>
+        <Games>
+          {newGames &&
+            newGames.map((game) => (
+              <Game
+                name={game.name}
+                id={game.id}
+                image={game.background_image}
+                key={game.id}
+                genres={game.genres}
+              />
+            ))}
+        </Games>
+        <ScrollTop />
+      </GameList>
+    </>
   );
 };
 

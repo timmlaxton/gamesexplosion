@@ -24,19 +24,14 @@ const gamesReducer = (state = initialState, action) => {
       };
 
       const { games } = action.payload;
-      // First we need to loop through the games, as we need to get access to genres
       games.forEach((game) => {
         const { id: gameId, genres } = game;
-        // Loop through genres and push game's ID to each of its genres in the state
         genres.forEach((genre) => {
           const { slug } = genre;
-          // If this genre is not in the state yet, create a new array for it
           if (!(slug in newState.genres)) {
             newState.genres[slug] = [];
           }
 
-          // Check if this game is already not included in this genre
-          // If it isn't in the state, then add it
           if (!newState.genres[slug].includes(gameId)) {
             newState.genres[slug] = [...newState.genres[slug], gameId];
           }

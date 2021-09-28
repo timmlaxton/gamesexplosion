@@ -30,7 +30,7 @@ const api_key = "68d11502c5e84e48a19bf51159c89c65";
 const popular_games = `games?key=${api_key}&dates=${lastYear},${currentDate}&ordering=-rating&page_size=20`;
 const upcoming_games = `games?key=${api_key}&dates=${currentDate},${nextYear}&ordering=-added&page_size=20`;
 const newGames = `games?key=${api_key}&dates=${lastYear},${currentDate}&ordering=-released&page_size=20`;
-const gameGenre = `games?key=${api_key}&genres=`;
+const gameGenre = `games?key=${api_key}&genres`;
 const home_upcoming_games = `games?key=${api_key}&dates=${currentDate},${nextYear}&ordering=-added&page_size=3`;
 const home_new_games = `games?key=${api_key}&dates=${lastYear},${currentDate}&ordering=-released&page_size=3`;
 

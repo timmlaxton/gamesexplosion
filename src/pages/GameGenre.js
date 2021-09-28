@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
-import GamesDetails from "../components/GamesDetails";
 import { useDispatch, useSelector } from "react-redux";
 import { loadGamesForGenre } from "../actions/gamesActions";
+import NavSearch from "../components/NavSearch";
 import Game from "../components/Game";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import ScrollTop from "../components/ScrollTop";
 
 const TITLES_CONFIG = {
   action: "Action",
@@ -16,10 +17,8 @@ const TITLES_CONFIG = {
 
 const GameGenre = () => {
   const dispatch = useDispatch();
-  const location = useLocation();
-  const { genre: genreType } = useParams();
 
-  const pathId = location.pathname.split("/")[2];
+  const { genre: genreType } = useParams();
 
   useEffect(() => {
     dispatch(loadGamesForGenre(genreType));
@@ -36,41 +35,44 @@ const GameGenre = () => {
   const searched = useSelector((state) => state.games.searched);
 
   return (
-    <GameList>
-      {pathId && <GamesDetails pathId={pathId} />}
-      {searched.length ? (
-        <div className="searched">
-          <h2>Searched Games</h2>
-          <Games>
-            {searched.map((game) => (
+    <>
+      <NavSearch />
+      <GameList>
+        {searched.length ? (
+          <div className="searched">
+            <h2>Searched Games</h2>
+            <Games>
+              {searched.map((game) => (
+                <Game
+                  name={game.name}
+                  released={game.released}
+                  id={game.id}
+                  image={game.background_image}
+                  key={game.id}
+                  genres={game.genres}
+                />
+              ))}
+            </Games>
+          </div>
+        ) : (
+          ""
+        )}
+        <h2>{TITLES_CONFIG[genreType] || TITLES_CONFIG.default}</h2>
+        <Games>
+          {gamesByGenre &&
+            gamesByGenre.map((game) => (
               <Game
                 name={game.name}
-                released={game.released}
                 id={game.id}
                 image={game.background_image}
-                key={game.ids}
+                key={game.id}
                 genres={game.genres}
               />
             ))}
-          </Games>
-        </div>
-      ) : (
-        ""
-      )}
-      <h2>{TITLES_CONFIG[genreType] || TITLES_CONFIG.default}</h2>
-      <Games>
-        {gamesByGenre &&
-          gamesByGenre.map((game) => (
-            <Game
-              name={game.name}
-              id={game.id}
-              image={game.background_image}
-              key={game.ids}
-              genres={game.genres}
-            />
-          ))}
-      </Games>
-    </GameList>
+        </Games>
+        <ScrollTop />
+      </GameList>
+    </>
   );
 };
 

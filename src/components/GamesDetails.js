@@ -2,16 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
 
 const GamesDetails = ({ pathId }) => {
-  const history = useHistory();
-
   const exitDetailHandler = (e) => {
     const element = e.target;
     if (element.classList.contains("shadow")) {
       document.body.style.overflow = "auto";
-      history.push("/");
     }
   };
 
@@ -84,7 +80,7 @@ const Detail = styled(motion.div)`
   padding: 2rem 5rem;
   background: #000;
   position: absolute;
-  left: 0%;
+  left: 10%;
   color: black;
   z-index: 10;
   img {

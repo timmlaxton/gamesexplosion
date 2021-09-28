@@ -6,6 +6,8 @@ const GlobalStyle = createGlobalStyle`
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  max-width: 100%;
+ 
 }
 
 #logo{
@@ -26,8 +28,12 @@ html{
 }
 
 
+
+
 h1 {
   color: #fff;
+  font-family: "Permanent Marker";
+  font-size: 2.4rem;
 }
 
 h2{
@@ -58,6 +64,8 @@ h2{
   a{
     font-size: 1.1.rem;
   }
+
+
 
   `;
 
