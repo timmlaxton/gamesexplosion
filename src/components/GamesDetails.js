@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
@@ -12,6 +12,14 @@ const GamesDetails = ({ pathId }) => {
   };
 
   const { screen, game, isLoading } = useSelector((state) => state.detail);
+
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      console.log("cleanup");
+      document.body.style.removeProperty("overflow");
+    };
+  }, []);
 
   return (
     <>

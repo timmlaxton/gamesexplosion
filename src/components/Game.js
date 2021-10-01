@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
@@ -9,7 +9,6 @@ const Game = ({ name, image, id }) => {
   const dispatch = useDispatch();
 
   const loadDetailHandler = () => {
-    document.body.style.overflow = "hidden";
     dispatch(loadDetail(id));
   };
 
