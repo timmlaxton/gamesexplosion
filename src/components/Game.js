@@ -34,7 +34,7 @@ const StyledGame = styled(motion.div)`
   padding: 1rem 1rem;
   overflow: hidden;
   color: #fff;
-  text-decoration: none;
+  text-decoration: none !important;
 
   img {
     width: 90%;
